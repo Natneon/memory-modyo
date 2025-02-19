@@ -1,0 +1,27 @@
+.card {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card-face {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card-back {
+  background-color: #777;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}

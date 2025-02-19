@@ -1,0 +1,25 @@
+.game-container {
+  text-align: center;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 10px;
+  justify-content: center;
+}
+
+.scoreboard {
+  margin-top: 20px;
+}
+
+input {
+  padding: 10px;
+  font-size: 18px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin-top: 10px;
+}
