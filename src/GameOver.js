@@ -6,6 +6,7 @@ function GameOver({ name }) {
     <div className="game-over">
       <h1>¡Felicidades, {name}!</h1>
       <p>¡Has completado el juego!</p>
+      <button onClick={() => window.location.reload()}>Jugar de nuevo</button>
     </div>
   );
 }
