@@ -71,15 +71,21 @@ function App() {
   return (
     <div className="game-container">
       {!confirmedName ? (
-        <div>
-          <h1>Introduce tu nombre para jugar</h1>
+        <div className="welcome-box">
+          <h1 className="title">Bienvenido a Memory by Modyo</h1>
+          <p className="subtitle">Introduce tu nombre para jugar</p>
           <input
             type="text"
             value={playerName}
             onChange={handleNameChange}
             placeholder="Tu nombre"
+            className="name-input"
           />
-          <button onClick={confirmName} disabled={playerName.trim() === ""}>
+          <button
+            onClick={confirmName}
+            disabled={playerName.trim() === ""}
+            className="confirm-button"
+          >
             Confirmar nombre
           </button>
         </div>
