@@ -1,4 +1,10 @@
 /* Estilos generales */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,18 +12,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: url('/jungle.jpg') no-repeat center center/cover;
+  color: #5a0bb5;
 }
 
-body {
-  background-image: url("/public/jungle.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+./* welcome-background {
+  background: url('/jungle.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
 
 
-
-/* Contenedor principal */
+/* Main container */
 .game-container {
   width: 100%;
   max-width: 800px;
@@ -25,6 +33,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  border-radius: 10px;
+
+}
+
+.board-container{
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border-radius: 10px;
+  background-color: aliceblue;
+  margin: 10px;
 }
 
 /* Solo la pantalla de bienvenida se centra */
@@ -34,15 +57,17 @@ body {
   background-repeat: no-repeat;
   padding: 30px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
   max-width: 400px;
   width: 100%;
+  background-color: #f0de14bd;
 }
 
 /* Título */
 .title {
   font-size: 24px;
+  text-transform:uppercase ;
   color: #333;
   margin-bottom: 10px;
 }
@@ -50,7 +75,7 @@ body {
 /* Subtítulo */
 .subtitle {
   font-size: 18px;
-  color: #666;
+  color: #333;
   margin-bottom: 20px;
 }
 
@@ -75,7 +100,7 @@ body {
   font-size: 16px;
   box-sizing: border-box;
   color: white;
-  background-color: #6a0dad; /* Morado */
+  background-color: #5a0bb5;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -88,14 +113,7 @@ body {
 }
 
 .confirm-button:hover:not(:disabled) {
-  background-color: #5a0bb5; /* Morado más oscuro al pasar el mouse */
-}
-
-/* Evita que el tablero se vea en columna */
-.board {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Ajusta la distribución normal del tablero */
-  gap: 10px;
+  background-color: #5a0bb5;
 }
 
 /* Contenedor centrado */
@@ -104,6 +122,16 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  background-color: #f0de14bd;
 }
 
 /* Botón de iniciar juego */
@@ -118,46 +146,61 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
-  margin-top: 15px; /* Espacio con el título */
+  margin-top: 15px;
   box-sizing: border-box;
 }
 
 .start-game-button:hover {
-  background-color: #218838; /* Verde más oscuro al pasar el mouse */
+  background-color: #218838;
 }
 
-.card {
-  width: 100px;
-  height: 100px;
-  margin: 10px;
-  display: inline-block;
-  cursor: pointer;
+
+/* Score */
+.scoreboard {
+  position: absolute;
+  top: 10px;
+  right: 1px;
+  background: transparent;
+  color: #b54f0b;
+  padding: 10px 23px;
   border-radius: 5px;
-  overflow: hidden;
-  background-color: #f0f0f0;
-  position: relative;
-}
-
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-back {
-  width: 100%;
-  height: 100%;
-  background-color: #4caf50;
-  color: white;
-  display: flex;
+  font-size: 16px;
   justify-content: center;
   align-items: center;
-  font-size: 24px;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.correct {
+  color: #4caf50; /* Verde para aciertos */
+}
+
+.error {
+  color: #f44336; /* Rojo para errores */
+}
+
+/* Tablero responsivo */
+.board {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  margin: 30px 10px 30px 10px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  max-width: 600px;
 }
 
 
-/* Responsividad */
+
+/* Responsivenes */
 @media (max-width: 500px) {
+   .board {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .scoreboard {
+    font-size: 14px;
+    padding: 8px;
+  }
+
   .welcome-box {
     padding: 20px;
   }
@@ -178,7 +221,11 @@ body {
     font-size: 14px;
   }
 
+}
+
+@media (max-width: 768px) {
   .board {
-    grid-template-columns: repeat(2, 1fr); /* Ajusta para pantallas pequeñas */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
+

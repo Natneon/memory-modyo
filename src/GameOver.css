@@ -2,3 +2,36 @@
   text-align: center;
   margin-top: 20px;
 }
+
+
+.bye-box{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  background-color: #b54f0b;
+}
+
+.play-again-button {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px;
+  font-size: 16px;
+  color: white;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 15px; /* Espacio con el título */
+  box-sizing: border-box;
+}
+
+.play-again-button:hover {
+  background-color:  #218838;;
+}
