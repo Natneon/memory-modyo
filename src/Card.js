@@ -5,7 +5,9 @@ function Card({ value, isFlipped, onClick }) {
   return (
     <div className="card" onClick={onClick}>
       {isFlipped ? (
-        <div className="card-face">{value}</div>
+        <div className="card-face">
+          <img src={value}></img>
+        </div>
       ) : (
         <div className="card-back"></div>
       )}

@@ -3,8 +3,7 @@ import "./App.css";
 import Card from "./Card";
 import GameOver from "./GameOver";
 
-const generateCards = () => {
-  const values = ["A", "B", "C", "D", "E", "F", "G", "H"];
+const generateCards = (values) => {
   const cards = [...values, ...values];
   return cards.sort(() => Math.random() - 0.5);
 };
@@ -12,13 +11,14 @@ const generateCards = () => {
 function App() {
   const [playerName, setPlayerName] = useState("");
   const [confirmedName, setConfirmedName] = useState(false);
-  const [cards, setCards] = useState(generateCards());
+  const [cards, setCards] = useState([]);
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
   const [errors, setErrors] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [showBoard, setShowBoard] = useState(false);
+  const [loadingAnimalImages, setLoadingAnimalImages] = useState([]);
 
   const handleNameChange = (e) => {
     setPlayerName(e.target.value);
@@ -59,10 +59,30 @@ function App() {
   };
 
   useEffect(() => {
-    if (matchedCards.length === cards.length / 2) {
+    if (cards.length > 0 && matchedCards.length === cards.length / 2) {
       setGameOver(true);
     }
   }, [matchedCards, cards]);
+
+  useEffect(() => {
+    console.log("hola");
+    fetch(
+      "https://fed-team.modyo.cloud/api/content/spaces/animals/types/game/entries?per_page=10"
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((body) => {
+        console.log("body", body);
+        const images = body.entries.map((entry) => {
+          return entry.fields.image.url;
+        });
+        setCards(generateCards(images));
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   if (gameOver) {
     return <GameOver name={playerName} />;
@@ -111,9 +131,11 @@ function App() {
           </div>
         </div>
       ) : (
-        <div>
+        <div className="start-game-container">
           <h1>¡Bienvenido, {playerName}!</h1>
-          <button onClick={startGame}>Empezar juego</button>
+          <button onClick={startGame} className="start-game-button">
+            Empezar juego
+          </button>
         </div>
       )}
     </div>
