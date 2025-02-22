@@ -165,30 +165,30 @@ body {
   display: grid;
   gap: 10px;
   justify-content: center;
-  grid-template-columns: repeat(5, 1fr); /* Default: 5 columns */
-  width: 100%; /* Ensures board takes up full space inside container */
-  max-width: 600px; /* Maximum board width */
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  max-width: 600px;
 }
 
 .correct {
-  color: #4caf50; /* Green for correct answers */
+  color: #4caf50;
 }
 
 .error {
-  color: #f44336; /* Red for wrong answers */
+  color: #f44336;
 }
 
 /* Responsiveness for small screens */
 @media (max-width: 600px) {
   .board-container {
-    width: 100%; /* The container takes up 100% of the width */
-    padding: 15px; /* Adjusted padding */
-    overflow-y: scroll; /* Add vertical scroll if content exceeds space */
+    width: 100%;
+    padding: 15px;
+    overflow-y: scroll;
   }
 
   .board {
-    grid-template-columns: repeat(3, 1fr); /* Fewer columns on small screens */
-    max-width: 100%; /* Board takes up full available width */
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
   }
 
   .scoreboard {
@@ -201,32 +201,32 @@ body {
 @media (max-width: 375px) {
   .board-container {
     width: 100%;
-    padding: 10px; /* Less padding on smaller screens */
-    margin: 0; /* Ensures the container does not overflow */
-    overflow-y: scroll; /* Add scroll to the container */
-    height: 100vh; /* Makes the container take up the full screen */
+    padding: 10px;
+    margin: 0;
+    overflow-y: scroll;
+    height: 100vh;
   }
 
   .board {
-    grid-template-columns: repeat(3, 1fr); /* Fewer columns on small screens */
-    max-width: 100%; /* Board takes up full available width */
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100%;
   }
 
   .welcome-box {
-    max-width: 80%; /* Reduce max width on small screens */
-    padding: 15px; /* Adjust padding so it is not too large */
+    max-width: 80%;
+    padding: 15px;
   }
 
   /* Make cards smaller */
   .card {
-    width: 40%; /* Reduce card size to 40% of the container width */
-    height: 80px; /* Reduce height */
-    font-size: 10px; /* Reduce text size */
+    width: 40%;
+    height: 80px;
+    font-size: 10px;
   }
 }
 
 @media (max-width: 400px) {
   .start-game-container {
-    padding: 8px; /* Adjust padding for very small screens */
+    padding: 8px;
   }
 }
