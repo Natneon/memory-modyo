@@ -1,0 +1,70 @@
+/* Estilos generales para PlayerSelection */
+.player-selection {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #f69393e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.player-selection .title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.player-selection .subtitle {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.player-selection .player-button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff; /* Texto blanco */
+  background-color: #277eb0; /* Morado medio para los botones */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.player-button-1 {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff; /* Texto blanco */
+  background-color: #5a0bb5;; /* Morado medio para los botones */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.player-button-2 {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff; /* Texto blanco */
+  background-color: #144e56; /* Morado medio para los botones */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.player-selection .player-button-1:hover {
+  background-color: #7b1fa2; /* Morado más oscuro al pasar el mouse */
+}
+
+.player-selection .player-button-2:hover {
+  background-color: #27a0b0; /* Morado más oscuro al pasar el mouse */
+}
