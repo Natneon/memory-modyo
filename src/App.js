@@ -96,7 +96,7 @@ function App() {
   }
 
   return (
-    <div className="game-container">
+    <div>
       {!confirmedName ? (
         <div className="welcome-box">
           <h1 className="title">Welcome to Memory!</h1>
@@ -118,7 +118,11 @@ function App() {
         </div>
       ) : showBoard ? (
         <div className="board-container">
-          <h1>¡Welcome, {playerName}!</h1>
+          <h1 className="title"> ¡Welcome, {playerName}!</h1>
+          <div className="scoreboard">
+            <p className={correct > 0 ? "correct" : ""}> Correct: {correct}</p>
+            <p className={errors > 0 ? "error" : ""}>Fail: {errors}</p>
+          </div>
           <div className="board">
             {cards.map((card, index) => (
               <Card
@@ -132,14 +136,10 @@ function App() {
               />
             ))}
           </div>
-          <div className="scoreboard">
-            <p className={correct > 0 ? "correct" : ""}> Correct: {correct}</p>
-            <p className={errors > 0 ? "error" : ""}>Wrong: {errors}</p>
-          </div>
         </div>
       ) : (
         <div className="start-game-container">
-          <h1>¡Welcome, {playerName}!</h1>
+          <h1 className="title">¡Welcome, {playerName}!</h1>
           <button onClick={startGame} className="start-game-button">
             Start Game
           </button>

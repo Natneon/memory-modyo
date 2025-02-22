@@ -3,51 +3,31 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-}
-
-body {
-  font-family: Arial, sans-serif;
   margin: 0;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('/jungle.jpg') no-repeat center center/cover;
-  color: #5a0bb5;
+  background: url('/jungle.jpg') repeat; /* Imagen de fondo repetida */
+  background-size: cover; /* Asegura que cubra toda la pantalla */
+  overflow: hidden; /* Evita el desbordamiento en el body */
 }
-
-./* welcome-background {
-  background: url('/jungle.jpg') no-repeat center center/cover;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 
 /* Main container */
-.game-container {
+.board-container {
   width: 100%;
-  max-width: 800px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  border-radius: 10px;
-
-}
-
-.board-container{
-  width: 100%;
-  max-width: 800px;
+  max-width: 1000px; /* Limita el ancho en pantallas muy grandes */
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   border-radius: 10px;
   background-color: aliceblue;
-  margin: 10px;
+  margin: 2rem; /* Asegura que el contenedor se centre */
+  box-sizing: border-box;
+  padding: 15px; /* Padding para evitar que el contenido toque los bordes */
+  overflow-y: auto; /* Agrega scroll solo si el contenido se desborda */
+  max-height: 100vh; /* Limita la altura máxima para que se active el scroll si es necesario */
 }
 
 /* Solo la pantalla de bienvenida se centra */
@@ -60,14 +40,29 @@ body {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
   max-width: 400px;
-  width: 100%;
   background-color: #f0de14bd;
+  margin: auto;
+  overflow: auto; /* Permite scroll si el contenido de la welcome-box es grande */
 }
+
+.scoreboard {
+  display: flex;
+  justify-content: center; /* Centra los elementos */
+  align-items: center;
+  gap: 15px; /* Espacio entre los elementos */
+  background: transparent;
+  color: #b54f0b;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
 
 /* Título */
 .title {
   font-size: 24px;
-  text-transform:uppercase ;
+  text-transform: uppercase;
   color: #333;
   margin-bottom: 10px;
 }
@@ -116,7 +111,7 @@ body {
   background-color: #5a0bb5;
 }
 
-/* Contenedor centrado */
+/* Start Game Container */
 .start-game-container {
   display: flex;
   flex-direction: column;
@@ -125,10 +120,9 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 30px;
+  padding: 15px; /* Ajustado para ser más flexible */
   border-radius: 10px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  text-align: center;
   max-width: 400px;
   width: 100%;
   background-color: #f0de14bd;
@@ -154,21 +148,29 @@ body {
   background-color: #218838;
 }
 
-
-/* Score */
-.scoreboard {
-  position: absolute;
-  top: 10px;
-  right: 1px;
-  background: transparent;
-  color: #b54f0b;
-  padding: 10px 23px;
-  border-radius: 5px;
-  font-size: 16px;
-  justify-content: center;
-  align-items: center;
+/* Board Container */
+.board-container {
+  width: 100%;
+  max-width: 600px; /* Establecer un límite para el contenedor */
+  display: flex;
   flex-direction: column;
-  gap: 5px;
+  align-items: center;
+  position: relative;
+  border-radius: 10px;
+  background-color: aliceblue;
+  margin: 20px auto; /* Centrado con margen adecuado */
+  box-sizing: border-box; /* Asegura que el padding no cause overflow */
+  padding: 20px; /* Padding para dar aire a los lados */
+}
+
+/* Tablero responsivo */
+.board {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  grid-template-columns: repeat(5, 1fr); /* Por defecto, 5 columnas */
+  width: 100%; /* Asegura que el board ocupe todo el espacio disponible dentro del contenedor */
+  max-width: 600px; /* Máximo ancho del board */
 }
 
 .correct {
@@ -179,53 +181,55 @@ body {
   color: #f44336; /* Rojo para errores */
 }
 
-/* Tablero responsivo */
-.board {
-  display: grid;
-  gap: 10px;
-  justify-content: center;
-  margin: 30px 10px 30px 10px;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  max-width: 600px;
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 600px) {
+  .board-container {
+    width: 100%; /* El contenedor ocupa el 100% del ancho */
+    padding: 15px; /* Ajuste de padding */
+    overflow-y: scroll; /* Agregar scroll vertical si el contenido excede el espacio */
+  }
+
+  .board {
+    grid-template-columns: repeat(3, 1fr); /* Menos columnas en pantallas pequeñas */
+    max-width: 100%; /* El tablero ocupa todo el ancho disponible */
+  }
+
+  .scoreboard {
+    font-size: 14px; /* Reducción de tamaño de fuente en pantallas pequeñas */
+    padding: 0px 15px; /* Ajuste de padding */
+  }
 }
 
-
-
-/* Responsivenes */
-@media (max-width: 500px) {
-   .board {
-    grid-template-columns: repeat(2, 1fr);
+/* Pantallas muy pequeñas */
+@media (max-width: 375px) {
+  .board-container {
+    width: 100%;
+    padding: 10px; /* Menos padding en pantallas más pequeñas */
+    margin: 0; /* Asegura que el contenedor no se desborde */
+    overflow-y: scroll; /* Agregar scroll en el contenedor */
+    height: 100vh; /* Hace que el contenedor ocupe toda la pantalla */
   }
-  .scoreboard {
-    font-size: 14px;
-    padding: 8px;
+
+  .board {
+    grid-template-columns: repeat(3, 1fr); /* Menos columnas en pantallas pequeñas */
+    max-width: 100%; /* El tablero ocupa todo el ancho disponible */
   }
 
   .welcome-box {
-    padding: 20px;
+    max-width: 80%; /* Reduce el ancho máximo en pantallas pequeñas */
+    padding: 15px; /* Ajusta el padding para que no sea tan grande */
   }
 
-  .title {
-    font-size: 20px;
-  }
-
-  .subtitle {
-    font-size: 16px;
-  }
-
-  .name-input {
-    font-size: 14px;
-  }
-
-  .confirm-button {
-    font-size: 14px;
-  }
-
-}
-
-@media (max-width: 768px) {
-  .board {
-    grid-template-columns: repeat(3, 1fr);
+  /* Hacer las tarjetas más pequeñas */
+  .card {
+    width: 40%; /* Reducir el tamaño de las cartas a un 40% del ancho del contenedor */
+    height: 80px; /* Reducir la altura */
+    font-size: 10px; /* Reducir el tamaño del texto */
   }
 }
 
+@media (max-width: 400px) {
+  .start-game-container {
+    padding: 8px; /* Ajuste de padding para pantallas muy pequeñas */
+  }
+}

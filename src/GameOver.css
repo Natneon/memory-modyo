@@ -3,8 +3,7 @@
   margin-top: 20px;
 }
 
-
-.bye-box{
+.bye-box {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -14,9 +13,11 @@
   text-align: center;
   max-width: 400px;
   width: 100%;
-  background-color: #b54f0b;
+  background-color: #bae295c4;
+  margin: 0 auto; /* Centra el contenedor */
 }
 
+/* Botón de "Play Again" */
 .play-again-button {
   width: 100%;
   max-width: 300px;
@@ -28,10 +29,35 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
-  margin-top: 15px; /* Espacio con el título */
+  margin-top: 15px;
   box-sizing: border-box;
 }
 
 .play-again-button:hover {
-  background-color:  #218838;;
+  background-color: #218838;
+}
+
+/* Media queries para la responsividad */
+@media (max-width: 768px) {
+  .bye-box {
+    padding: 20px; /* Menos padding en pantallas pequeñas */
+    max-width: 90%; /* La caja ocupará más espacio en pantallas pequeñas */
+  }
+
+  .play-again-button {
+    font-size: 14px; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+    padding: 10px; /* Menos padding en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .bye-box {
+    padding: 15px; /* Reducimos aún más el padding */
+  }
+
+  .play-again-button {
+    max-width: 100%; /* El botón ocupará todo el ancho */
+    font-size: 12px; /* Reducimos aún más el tamaño de la fuente */
+    padding: 8px; /* Ajustamos el padding del botón */
+  }
 }
