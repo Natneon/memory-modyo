@@ -4,9 +4,16 @@ import "./GameOver.css";
 function GameOver({ name }) {
   return (
     <div className="game-over">
-      <h1>¡Felicidades, {name}!</h1>
-      <p>¡Has completado el juego!</p>
-      <button onClick={() => window.location.reload()}>Jugar de nuevo</button>
+      <div className="bye-box">
+        <h1 className="title">¡Felicidades, {name}!</h1>
+        <p>¡Has completado el juego!</p>
+        <button
+          onClick={() => window.location.reload()}
+          className="play-again-button"
+        >
+          Play Again
+        </button>
+      </div>
     </div>
   );
 }

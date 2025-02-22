@@ -59,13 +59,20 @@ function App() {
   };
 
   useEffect(() => {
+    if (!confirmedName) {
+      document.body.classList.add("welcome-background");
+    } else {
+      document.body.classList.remove("welcome-background");
+    }
+  }, [confirmedName]);
+
+  useEffect(() => {
     if (cards.length > 0 && matchedCards.length === cards.length / 2) {
       setGameOver(true);
     }
   }, [matchedCards, cards]);
 
   useEffect(() => {
-    console.log("hola");
     fetch(
       "https://fed-team.modyo.cloud/api/content/spaces/animals/types/game/entries?per_page=10"
     )
@@ -89,16 +96,16 @@ function App() {
   }
 
   return (
-    <div className="game-container">
+    <div>
       {!confirmedName ? (
         <div className="welcome-box">
-          <h1 className="title">Bienvenido a Memory by Modyo</h1>
-          <p className="subtitle">Introduce tu nombre para jugar</p>
+          <h1 className="title">Welcome to Memory!</h1>
+          <p className="subtitle">Enter your name to play</p>
           <input
             type="text"
             value={playerName}
             onChange={handleNameChange}
-            placeholder="Tu nombre"
+            placeholder="Your Name"
             className="name-input"
           />
           <button
@@ -106,12 +113,16 @@ function App() {
             disabled={playerName.trim() === ""}
             className="confirm-button"
           >
-            Confirmar nombre
+            Confirm your name
           </button>
         </div>
       ) : showBoard ? (
-        <div>
-          <h1>¡Bienvenido, {playerName}!</h1>
+        <div className="board-container">
+          <h1 className="title"> ¡Welcome, {playerName}!</h1>
+          <div className="scoreboard">
+            <p className={correct > 0 ? "correct" : ""}> Correct: {correct}</p>
+            <p className={errors > 0 ? "error" : ""}>Fail: {errors}</p>
+          </div>
           <div className="board">
             {cards.map((card, index) => (
               <Card
@@ -125,16 +136,12 @@ function App() {
               />
             ))}
           </div>
-          <div className="scoreboard">
-            <p>Aciertos: {correct}</p>
-            <p>Errores: {errors}</p>
-          </div>
         </div>
       ) : (
         <div className="start-game-container">
-          <h1>¡Bienvenido, {playerName}!</h1>
+          <h1 className="title">¡Welcome, {playerName}!</h1>
           <button onClick={startGame} className="start-game-button">
-            Empezar juego
+            Start Game
           </button>
         </div>
       )}
