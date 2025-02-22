@@ -117,7 +117,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 15px; /* Adjusted for more flexibility */
+  padding: 15px;
   border-radius: 10px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   max-width: 400px;
@@ -132,7 +132,7 @@ body {
   padding: 12px;
   font-size: 16px;
   color: white;
-  background-color: #28a745; /* Green */
+  background-color: #28a745;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -148,16 +148,16 @@ body {
 /* Board Container */
 .board-container {
   width: 100%;
-  max-width: 600px; /* Set a limit for the container */
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   border-radius: 10px;
   background-color: aliceblue;
-  margin: 20px auto; /* Centered with appropriate margin */
-  box-sizing: border-box; /* Ensures padding does not cause overflow */
-  padding: 20px; /* Padding to provide spacing */
+  margin: 20px auto;
+  box-sizing: border-box;
+  padding: 20px;
 }
 
 /* Responsive board */
@@ -192,8 +192,8 @@ body {
   }
 
   .scoreboard {
-    font-size: 14px; /* Reduce font size on small screens */
-    padding: 0px 15px; /* Adjust padding */
+    font-size: 14px; /
+    padding: 0px 15px;
   }
 }
 
