@@ -14,10 +14,10 @@
   max-width: 400px;
   width: 100%;
   background-color: #bae295c4;
-  margin: 0 auto; /* Centra el contenedor */
+  margin: 0 auto; /* Centers the container */
 }
 
-/* Botón de "Play Again" */
+/* "Play Again" button */
 .play-again-button {
   width: 100%;
   max-width: 300px;
@@ -37,27 +37,27 @@
   background-color: #218838;
 }
 
-/* Media queries para la responsividad */
+/* Media queries for responsiveness */
 @media (max-width: 768px) {
   .bye-box {
-    padding: 20px; /* Menos padding en pantallas pequeñas */
-    max-width: 90%; /* La caja ocupará más espacio en pantallas pequeñas */
+    padding: 20px; /* Less padding on small screens */
+    max-width: 90%; /* The box will take up more space on small screens */
   }
 
   .play-again-button {
-    font-size: 14px; /* Reducir el tamaño de la fuente en pantallas pequeñas */
-    padding: 10px; /* Menos padding en pantallas pequeñas */
+    font-size: 14px; /* Reduce font size on small screens */
+    padding: 10px; /* Less padding on small screens */
   }
 }
 
 @media (max-width: 480px) {
   .bye-box {
-    padding: 15px; /* Reducimos aún más el padding */
+    padding: 15px; /* Further reduce padding */
   }
 
   .play-again-button {
-    max-width: 100%; /* El botón ocupará todo el ancho */
-    font-size: 12px; /* Reducimos aún más el tamaño de la fuente */
-    padding: 8px; /* Ajustamos el padding del botón */
+    max-width: 100%; /* The button will take up the full width */
+    font-size: 12px; /* Further reduce font size */
+    padding: 8px; /* Adjust button padding */
   }
 }
