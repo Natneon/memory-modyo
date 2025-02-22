@@ -122,6 +122,19 @@ function App() {
     setShowBoard(false);
   };
 
+  const handleExit = () => {
+    setPlayerName("");
+    setConfirmedName(false);
+    setCards([]);
+    setFlippedCards([]);
+    setMatchedCards([]);
+    setErrors(0);
+    setCorrect(0);
+    setGameOver(false);
+    setShowBoard(false);
+    setShowPlayerSelection(false);
+  };
+
   if (gameOver) {
     return (
       <GameOver
@@ -129,6 +142,7 @@ function App() {
         correct={correct}
         errors={errors}
         resetGame={resetGame}
+        onExit={handleExit}
       />
     );
   }

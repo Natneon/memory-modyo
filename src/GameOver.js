@@ -1,7 +1,7 @@
 import React from "react";
 import "./GameOver.css";
 
-function GameOver({ name, correct, errors, resetGame }) {
+function GameOver({ name, correct, errors, resetGame, onExit }) {
   return (
     <div className="game-over">
       <div className="bye-box">
@@ -15,9 +15,14 @@ function GameOver({ name, correct, errors, resetGame }) {
             Errors: <span>{errors}</span>
           </p>
         </div>
-        <button onClick={resetGame} className="play-again-button">
-          Play Again
-        </button>
+        <div className="button-container">
+          <button onClick={resetGame} className="play-again-button">
+            Play Again
+          </button>
+          <button onClick={onExit} className="exit-button">
+            Exit
+          </button>
+        </div>
       </div>
     </div>
   );

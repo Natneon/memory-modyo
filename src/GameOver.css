@@ -55,17 +55,57 @@
   font-weight: bold;
 }
 
-.bye-box .play-again-button {
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.play-again-button,
+.exit-button {
+  flex: 1;
   padding: 10px 20px;
   font-size: 1rem;
   color: #fff;
-  background-color: #9c27b0; /* Morado medio */
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  white-space: nowrap;
 }
 
-.bye-box .play-again-button:hover {
-  background-color: #7b1fa2; /* Morado más oscuro */
+.play-again-button {
+  background-color: #9c27b0;
+}
+
+.play-again-button:hover {
+  background-color: #7b1fa2;
+}
+
+.exit-button {
+  background-color: #f44336;
+}
+
+.exit-button:hover {
+  background-color: #5c1919;
+}
+
+
+@media (max-width: 480px) {
+  .bye-box {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .play-again-button,
+  .exit-button {
+    width: 100%;
+}
 }
