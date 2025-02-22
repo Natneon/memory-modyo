@@ -118,7 +118,7 @@ function App() {
         </div>
       ) : showBoard ? (
         <div className="board-container">
-          <h1 className="title"> ¡Welcome, {playerName}!</h1>
+          <h1 className="title"> ¡it's time to play, {playerName}!</h1>
           <div className="scoreboard">
             <p className={correct > 0 ? "correct" : ""}> Correct: {correct}</p>
             <p className={errors > 0 ? "error" : ""}>Fail: {errors}</p>

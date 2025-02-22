@@ -5,8 +5,8 @@ function GameOver({ name }) {
   return (
     <div className="game-over">
       <div className="bye-box">
-        <h1 className="title">¡Felicidades, {name}!</h1>
-        <p>¡Has completado el juego!</p>
+        <h1 className="title">¡Congratulations, {name}!</h1>
+        <p>You have completed the game!</p>
         <button
           onClick={() => window.location.reload()}
           className="play-again-button"
